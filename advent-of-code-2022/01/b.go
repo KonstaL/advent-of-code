@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -34,13 +35,13 @@ func main() {
 		cals += val
 	}
 
-	maxVal := 0
-	for _, val := range calList {
-		if val > maxVal {
-			maxVal = val
-		}
+	sort.Ints(calList)
+
+	top3Acc := 0
+	for i := 0; i < 3; i++ {
+		top3Acc += calList[len(calList)-1-i]
 	}
 
-	fmt.Println(maxVal)
+	fmt.Println(top3Acc)
 
 }

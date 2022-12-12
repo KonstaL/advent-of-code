@@ -18,8 +18,14 @@ async function main() {
       [0]
     );
 
-  const maxCal = cals.reduce((acc, curr) => Math.max(acc, curr), 0);
-  console.log(maxCal);
+  cals.sort((a, b) => b - a);
+
+  let maxCals = 0;
+  for (let i = 0; i < 3; i++) {
+    maxCals += cals[i];
+  }
+
+  console.log(maxCals);
 }
 
 main();
